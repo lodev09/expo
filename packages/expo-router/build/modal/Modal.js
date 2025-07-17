@@ -33,11 +33,7 @@ const utils_1 = require("./utils");
  * }
  */
 function Modal(props) {
-<<<<<<< HEAD
-    const { children, visible, onClose, onShow, onDetentChange, animationType, presentationStyle, transparent, detents, detentIndex, cornerRadius, ...viewProps } = props;
-=======
-    const { children, visible, onClose, onShow, animationType, presentationStyle, transparent, detents, footer, ...viewProps } = props;
->>>>>>> feat/expo-router-modal-footer
+    const { children, visible, onClose, onShow, onDetentChange, animationType, presentationStyle, transparent, detents, detentIndex, cornerRadius, footer, ...viewProps } = props;
     const { openModal, updateModal, closeModal, addEventListener } = (0, ModalContext_1.useModalContext)();
     const [currentModalId, setCurrentModalId] = (0, react_1.useState)();
     const navigation = (0, useNavigation_1.useNavigation)();
@@ -59,11 +55,8 @@ function Modal(props) {
                 parentNavigationProp: navigation,
                 detentIndex,
                 detents,
-<<<<<<< HEAD
                 cornerRadius,
-=======
                 footer,
->>>>>>> feat/expo-router-modal-footer
             });
             setCurrentModalId(newId);
             return () => {
@@ -80,11 +73,7 @@ function Modal(props) {
                 footer,
             });
         }
-<<<<<<< HEAD
-    }, [children, detentIndex]);
-=======
-    }, [children, footer]);
->>>>>>> feat/expo-router-modal-footer
+    }, [children, footer, detentIndex]);
     (0, react_1.useEffect)(() => {
         if (currentModalId) {
             const unsubscribeShow = addEventListener('show', (id) => {

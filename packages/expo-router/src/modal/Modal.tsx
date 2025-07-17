@@ -131,12 +131,9 @@ export function Modal(props: ModalProps) {
     presentationStyle,
     transparent,
     detents,
-<<<<<<< HEAD
     detentIndex,
     cornerRadius,
-=======
     footer,
->>>>>>> feat/expo-router-modal-footer
     ...viewProps
   } = props;
   const { openModal, updateModal, closeModal, addEventListener } = useModalContext();
@@ -160,11 +157,8 @@ export function Modal(props: ModalProps) {
         parentNavigationProp: navigation,
         detentIndex,
         detents,
-<<<<<<< HEAD
         cornerRadius,
-=======
         footer,
->>>>>>> feat/expo-router-modal-footer
       });
       setCurrentModalId(newId);
       return () => {
@@ -182,11 +176,7 @@ export function Modal(props: ModalProps) {
         footer,
       });
     }
-<<<<<<< HEAD
-  }, [children, detentIndex]);
-=======
-  }, [children, footer]);
->>>>>>> feat/expo-router-modal-footer
+  }, [children, footer, detentIndex]);
 
   useEffect(() => {
     if (currentModalId) {
