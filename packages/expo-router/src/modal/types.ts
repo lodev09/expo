@@ -11,6 +11,7 @@ export interface ModalConfig {
   viewProps?: ViewProps;
   detents?: number[] | 'fitToContents';
   detentIndex?: number | 'last';
+  cornerRadius?: number;
 }
 
 export interface DetentChangeData {

@@ -24,7 +24,11 @@ const ModalsRenderer = ({ children, modalConfigs, onDismissed, onShow, onDetentC
                     backgroundColor: config.transparent ? 'transparent' : 'white',
                 },
                 config.viewProps?.style,
+<<<<<<< HEAD
             ]} sheetAllowedDetents={config.detents} sheetInitialDetentIndex={config.detentIndex} style={[
+=======
+            ]} sheetAllowedDetents={config.detents} sheetCornerRadius={config.cornerRadius} style={[
+>>>>>>> feat/expo-router-modal-corner-radius
                 react_native_1.StyleSheet.absoluteFill,
                 {
                     backgroundColor: config.transparent ? 'transparent' : 'white',

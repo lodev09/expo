@@ -57,6 +57,7 @@ function Modal({ config, onDismissed }: ModalProps) {
         headerShown: false,
         sheetAllowedDetents: config.detents,
         sheetInitialDetentIndex: config.detentIndex,
+        sheetCornerRadius: config.cornerRadius,
       }}
       renderScreen={() => (
         <View style={{ flex: 1 }}>

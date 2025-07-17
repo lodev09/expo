@@ -50,6 +50,7 @@ export const ModalsRenderer = ({
           ]}
           sheetAllowedDetents={config.detents}
           sheetInitialDetentIndex={config.detentIndex}
+          sheetCornerRadius={config.cornerRadius}
           style={[
             StyleSheet.absoluteFill,
             {

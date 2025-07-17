@@ -79,6 +79,13 @@ export interface ModalProps extends ViewProps {
    * Works only when `presentation` is set to `formSheet`.
    */
   detentIndex?: ModalConfig['detentIndex'];
+  /**
+   * See {@link ScreenProps["sheetCornerRadius"]}.
+   * 
+   * The corner radius that the sheet will try to render with.
+   * Works only when `presentation` is set to `formSheet`.
+   */
+  cornerRadius?: ModalConfig['cornerRadius'];
 }
 
 /**
@@ -118,6 +125,7 @@ export function Modal(props: ModalProps) {
     transparent,
     detents,
     detentIndex,
+    cornerRadius,
     ...viewProps
   } = props;
   const { openModal, updateModal, closeModal, addEventListener } = useModalContext();
@@ -141,6 +149,7 @@ export function Modal(props: ModalProps) {
         parentNavigationProp: navigation,
         detentIndex,
         detents,
+        cornerRadius,
       });
       setCurrentModalId(newId);
       return () => {

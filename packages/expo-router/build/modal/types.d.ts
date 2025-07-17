@@ -9,11 +9,15 @@ export interface ModalConfig {
     transparent?: boolean;
     viewProps?: ViewProps;
     detents?: number[] | 'fitToContents';
+<<<<<<< HEAD
     detentIndex?: number | 'last';
 }
 export interface DetentChangeData {
     index: number;
     stable: boolean;
+=======
+    cornerRadius?: number;
+>>>>>>> feat/expo-router-modal-corner-radius
 }
 export interface ModalsRendererProps {
     children?: React.ReactNode;
