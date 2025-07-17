@@ -13,9 +13,15 @@ export interface ModalConfig {
   detentIndex?: number | 'last';
 }
 
+export interface DetentChangeData {
+  index: number;
+  stable: boolean;
+}
+
 export interface ModalsRendererProps {
   children?: React.ReactNode;
   modalConfigs: ModalConfig[];
   onDismissed?: (id: string) => void;
   onShow?: (id: string) => void;
+  onDetentChange?: (id: string, data: DetentChangeData) => void;
 }
