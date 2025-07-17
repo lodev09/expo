@@ -63,21 +63,19 @@ export interface ModalProps extends ViewProps {
      */
     detents?: ModalConfig['detents'];
     /**
-<<<<<<< HEAD
      * See {@link ScreenProps["initialDetentIndex"]}.
      *
      * The initial detent index when sheet is presented.
      * Works only when `presentation` is set to `formSheet`.
      */
     detentIndex?: ModalConfig['detentIndex'];
-=======
+    /**
      * See {@link ScreenProps["sheetCornerRadius"]}.
      *
      * The corner radius that the sheet will try to render with.
      * Works only when `presentation` is set to `formSheet`.
      */
     cornerRadius?: ModalConfig['cornerRadius'];
->>>>>>> feat/expo-router-modal-corner-radius
 }
 /**
  * A standalone modal component that can be used in Expo Router apps.
