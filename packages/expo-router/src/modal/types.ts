@@ -12,6 +12,7 @@ export interface ModalConfig {
   detents?: number[] | 'fitToContents';
   detentIndex?: number | 'last';
   cornerRadius?: number;
+  footer?: () => React.ReactNode;
 }
 
 export interface DetentChangeData {

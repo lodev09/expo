@@ -63,6 +63,7 @@ export interface ModalProps extends ViewProps {
      */
     detents?: ModalConfig['detents'];
     /**
+<<<<<<< HEAD
      * See {@link ScreenProps["initialDetentIndex"]}.
      *
      * The initial detent index when sheet is presented.
@@ -76,6 +77,14 @@ export interface ModalProps extends ViewProps {
      * Works only when `presentation` is set to `formSheet`.
      */
     cornerRadius?: ModalConfig['cornerRadius'];
+=======
+     * See {@link ScreenProps["unstable_sheetFooter"]}.
+     *
+     * Footer component that can be used alongside formSheet stack presentation style.
+     * Works only when `presentation` is set to `formSheet`.
+     */
+    footer?: ModalConfig['footer'];
+>>>>>>> feat/expo-router-modal-footer
 }
 /**
  * A standalone modal component that can be used in Expo Router apps.

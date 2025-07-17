@@ -9,12 +9,16 @@ export interface ModalConfig {
     transparent?: boolean;
     viewProps?: ViewProps;
     detents?: number[] | 'fitToContents';
+<<<<<<< HEAD
     detentIndex?: number | 'last';
     cornerRadius?: number;
 }
 export interface DetentChangeData {
     index: number;
     stable: boolean;
+=======
+    footer?: () => React.ReactNode;
+>>>>>>> feat/expo-router-modal-footer
 }
 export interface ModalsRendererProps {
     children?: React.ReactNode;
