@@ -24,11 +24,7 @@ const ModalsRenderer = ({ children, modalConfigs, onDismissed, onShow, onDetentC
                     backgroundColor: config.transparent ? 'transparent' : 'white',
                 },
                 config.viewProps?.style,
-<<<<<<< HEAD
-            ]} sheetAllowedDetents={config.detents} sheetInitialDetentIndex={config.detentIndex} sheetCornerRadius={config.cornerRadius} unstable_sheetFooter={config.footer} style={[
-=======
-            ]} sheetAllowedDetents={config.detents} sheetInitialDetentIndex={config.initialDetentIndex} style={[
->>>>>>> feat/router-modal-initial-detent-index
+            ]} sheetAllowedDetents={config.detents} sheetInitialDetentIndex={config.initialDetentIndex} sheetCornerRadius={config.cornerRadius} unstable_sheetFooter={config.footer} style={[
                 react_native_1.StyleSheet.absoluteFill,
                 {
                     backgroundColor: config.transparent ? 'transparent' : 'white',

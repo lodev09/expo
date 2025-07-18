@@ -33,11 +33,7 @@ const utils_1 = require("./utils");
  * }
  */
 function Modal(props) {
-<<<<<<< HEAD
-    const { children, visible, onClose, onShow, onDetentChange, animationType, presentationStyle, transparent, detents, detentIndex, cornerRadius, footer, ...viewProps } = props;
-=======
-    const { children, visible, onClose, onShow, animationType, presentationStyle, transparent, detents, initialDetentIndex, ...viewProps } = props;
->>>>>>> feat/router-modal-initial-detent-index
+    const { children, visible, onClose, onShow, onDetentChange, animationType, presentationStyle, transparent, detents, initialDetentIndex, cornerRadius, footer, ...viewProps } = props;
     const { openModal, updateModal, closeModal, addEventListener } = (0, ModalContext_1.useModalContext)();
     const [currentModalId, setCurrentModalId] = (0, react_1.useState)();
     const navigation = (0, useNavigation_1.useNavigation)();
@@ -78,14 +74,11 @@ function Modal(props) {
         if (currentModalId && visible) {
             updateModal(currentModalId, {
                 component: children,
+                initialDetentIndex,
                 footer,
             });
         }
-<<<<<<< HEAD
-    }, [children, footer, detentIndex]);
-=======
-    }, [children]);
->>>>>>> feat/router-modal-initial-detent-index
+    }, [children, footer, initialDetentIndex]);
     (0, react_1.useEffect)(() => {
         if (currentModalId) {
             const unsubscribeShow = addEventListener('show', (id) => {
