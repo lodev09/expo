@@ -51,6 +51,8 @@ export const ModalsRenderer = ({
           sheetAllowedDetents={config.detents}
           sheetInitialDetentIndex={config.initialDetentIndex}
           sheetCornerRadius={config.cornerRadius}
+          // @ts-expect-error
+          sheetDismissible={config.dismissible}
           unstable_sheetFooter={config.footer}
           sheetLargestUndimmedDetentIndex={config.largestUndimmedDetentIndex}
           style={[

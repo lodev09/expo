@@ -181,7 +181,8 @@ function ModalStackRouteDrawer({
     <Drawer.Root
       key={`${routeKey}-${isSheet ? 'sheet' : 'modal'}`}
       open={open}
-      dismissible={options.gestureEnabled ?? true}
+      // @ts-expect-error
+      dismissible={options.gestureEnabled ?? (true && options.sheetDismissible) ?? true}
       onAnimationEnd={handleOpenChange}
       shouldScaleBackground
       autoFocus

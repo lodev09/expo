@@ -59,6 +59,8 @@ function Modal({ config, onDismissed }: ModalProps) {
         sheetInitialDetentIndex: config.initialDetentIndex,
         sheetCornerRadius: config.cornerRadius,
         sheetLargestUndimmedDetentIndex: config.largestUndimmedDetentIndex,
+        // @ts-expect-error
+        sheetDismissible: config.dismissible,
       }}
       renderScreen={() => (
         <View style={{ flex: 1 }}>

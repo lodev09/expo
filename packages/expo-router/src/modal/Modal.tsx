@@ -100,6 +100,17 @@ export interface ModalProps extends ViewProps {
    * Works only when `presentation` is set to `formSheet`.
    */
   largestUndimmedDetentIndex?: ModalConfig['largestUndimmedDetentIndex'];
+  /**
+   * See {@link ScreenProps["sheetDismissible"]}.
+   *
+   * Determines if the sheet can be dismissed.
+   * Works only when `presentation` is set to `formSheet`.
+   *
+   * NOTE: not yet in react-native-screens
+   * @see https://github.com/software-mansion/react-native-screens/pull/2902
+   * @default true
+   */
+  dismissible?: ModalConfig['dismissible'];
 }
 
 /**
@@ -142,6 +153,7 @@ export function Modal(props: ModalProps) {
     cornerRadius,
     footer,
     largestUndimmedDetentIndex,
+    dismissible = true,
     ...viewProps
   } = props;
   const { openModal, updateModal, closeModal, addEventListener } = useModalContext();
@@ -177,6 +189,7 @@ export function Modal(props: ModalProps) {
         cornerRadius,
         footer,
         largestUndimmedDetentIndex,
+        dismissible,
       });
       setCurrentModalId(newId);
       return () => {

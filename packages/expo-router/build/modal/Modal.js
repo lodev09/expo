@@ -33,7 +33,7 @@ const utils_1 = require("./utils");
  * }
  */
 function Modal(props) {
-    const { children, visible, onClose, onShow, onDetentChange, animationType, presentationStyle, transparent, detents, initialDetentIndex, cornerRadius, footer, largestUndimmedDetentIndex, ...viewProps } = props;
+    const { children, visible, onClose, onShow, onDetentChange, animationType, presentationStyle, transparent, detents, initialDetentIndex, cornerRadius, footer, largestUndimmedDetentIndex, dismissible = true, ...viewProps } = props;
     const { openModal, updateModal, closeModal, addEventListener } = (0, ModalContext_1.useModalContext)();
     const [currentModalId, setCurrentModalId] = (0, react_1.useState)();
     const navigation = (0, useNavigation_1.useNavigation)();
@@ -63,6 +63,7 @@ function Modal(props) {
                 cornerRadius,
                 footer,
                 largestUndimmedDetentIndex,
+                dismissible,
             });
             setCurrentModalId(newId);
             return () => {

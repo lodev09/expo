@@ -14,6 +14,7 @@ export interface ModalConfig {
   cornerRadius?: number;
   footer?: () => React.ReactNode;
   largestUndimmedDetentIndex?: number | 'none' | 'last';
+  dismissible?: boolean;
 }
 
 export interface DetentChangeData {

@@ -24,7 +24,9 @@ const ModalsRenderer = ({ children, modalConfigs, onDismissed, onShow, onDetentC
                     backgroundColor: config.transparent ? 'transparent' : 'white',
                 },
                 config.viewProps?.style,
-            ]} sheetAllowedDetents={config.detents} sheetInitialDetentIndex={config.initialDetentIndex} sheetCornerRadius={config.cornerRadius} unstable_sheetFooter={config.footer} sheetLargestUndimmedDetentIndex={config.largestUndimmedDetentIndex} style={[
+            ]} sheetAllowedDetents={config.detents} sheetInitialDetentIndex={config.initialDetentIndex} sheetCornerRadius={config.cornerRadius} 
+        // @ts-expect-error
+        sheetDismissible={config.dismissible} unstable_sheetFooter={config.footer} sheetLargestUndimmedDetentIndex={config.largestUndimmedDetentIndex} style={[
                 react_native_1.StyleSheet.absoluteFill,
                 {
                     backgroundColor: config.transparent ? 'transparent' : 'white',
