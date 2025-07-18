@@ -93,6 +93,13 @@ export interface ModalProps extends ViewProps {
    * Works only when `presentation` is set to `formSheet`.
    */
   footer?: ModalConfig['footer'];
+  /**
+   * See {@link ScreenProps["sheetLargestUndimmedDetentIndex"]}.
+   *
+   * The largest sheet detent for which a view underneath won't be dimmed.
+   * Works only when `presentation` is set to `formSheet`.
+   */
+  largestUndimmedDetentIndex?: ModalConfig['largestUndimmedDetentIndex'];
 }
 
 /**
@@ -134,6 +141,7 @@ export function Modal(props: ModalProps) {
     initialDetentIndex,
     cornerRadius,
     footer,
+    largestUndimmedDetentIndex,
     ...viewProps
   } = props;
   const { openModal, updateModal, closeModal, addEventListener } = useModalContext();
@@ -168,6 +176,7 @@ export function Modal(props: ModalProps) {
         detents,
         cornerRadius,
         footer,
+        largestUndimmedDetentIndex,
       });
       setCurrentModalId(newId);
       return () => {

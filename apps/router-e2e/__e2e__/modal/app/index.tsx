@@ -149,10 +149,19 @@ export default function Index() {
         </Modal>
       )}
       <FitForm />
-      <InitalDetentForm />
+      <InitialDetentForm />
       <FooterForm />
+      <UndimmedForm />
     </View>
   );
+}
+
+function UnstableFooter() {
+  return (
+    <View style={{ height: 50, backgroundColor: '#00CCAD' }}>
+      <Text>Test Footer</Text>
+    </View>
+  )
 }
 
 function FooterForm() {
@@ -178,11 +187,26 @@ function FooterForm() {
   )
 }
 
-function UnstableFooter() {
+function UndimmedForm() {
+  const [open, setIsOpen] = useState(false);
   return (
-    <View style={{ height: 50, backgroundColor: '#00CCAD' }}>
-      <Text>Test Footer</Text>
-    </View>
+    <>
+      <Button title="Open Undimmed" onPress={() => setIsOpen((open) => !open)} />
+        <Modal
+          visible={open}
+          presentationStyle="formSheet"
+          onClose={() => setIsOpen(false)}
+          detents={[0.3, 0.5, 1]}
+          largestUndimmedDetentIndex={0}
+          style={{
+            paddingTop: 20,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Button title="Close" onPress={() => setIsOpen(false)} />
+        </Modal>
+    </>
   )
 }
 

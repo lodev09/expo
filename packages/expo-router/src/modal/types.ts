@@ -13,6 +13,7 @@ export interface ModalConfig {
   initialDetentIndex?: number | 'last';
   cornerRadius?: number;
   footer?: () => React.ReactNode;
+  largestUndimmedDetentIndex?: number | 'none' | 'last';
 }
 
 export interface DetentChangeData {

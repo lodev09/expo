@@ -52,6 +52,7 @@ export const ModalsRenderer = ({
           sheetInitialDetentIndex={config.initialDetentIndex}
           sheetCornerRadius={config.cornerRadius}
           unstable_sheetFooter={config.footer}
+          sheetLargestUndimmedDetentIndex={config.largestUndimmedDetentIndex}
           style={[
             StyleSheet.absoluteFill,
             {
