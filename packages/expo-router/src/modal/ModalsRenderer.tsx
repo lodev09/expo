@@ -49,7 +49,7 @@ export const ModalsRenderer = ({
             config.viewProps?.style,
           ]}
           sheetAllowedDetents={config.detents}
-          sheetInitialDetentIndex={config.detentIndex}
+          sheetInitialDetentIndex={config.initialDetentIndex}
           sheetCornerRadius={config.cornerRadius}
           unstable_sheetFooter={config.footer}
           style={[

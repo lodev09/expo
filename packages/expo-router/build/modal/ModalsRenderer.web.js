@@ -28,8 +28,12 @@ function Modal({ config, onDismissed }) {
             animation: (0, utils_1.getStackAnimationType)(config),
             headerShown: false,
             sheetAllowedDetents: config.detents,
+<<<<<<< HEAD
             sheetInitialDetentIndex: config.detentIndex,
             sheetCornerRadius: config.cornerRadius,
+=======
+            sheetInitialDetentIndex: config.initialDetentIndex,
+>>>>>>> feat/router-modal-initial-detent-index
         }} renderScreen={() => (<react_native_1.View style={{ flex: 1 }}>
           <react_native_1.View {...config.viewProps} style={[{ flex: 1 }, config.viewProps?.style]}>
             <ModalComponent_1.ModalComponent modalConfig={config}/>

@@ -11,7 +11,7 @@ import { ExtendedStackNavigationOptions } from '../../layouts/StackClient';
 export type PresentationOptions = Partial<Pick<ExtendedStackNavigationOptions, 'presentation'>>;
 
 /**
- * Heoper to determine the detent index from the given `sheetInitialDetentIndex` option.
+ * Helper to determine the detent index from the given `sheetInitialDetentIndex` option.
  *
  * @param options - The navigation options.
  * @returns The actual detent index.
@@ -21,9 +21,12 @@ export function getInitialDetentIndex(options?: ExtendedStackNavigationOptions |
   const sheetInitialDetentIndex = options?.sheetInitialDetentIndex ?? 0;
 
   if (Array.isArray(sheetAllowedDetents)) {
-    return sheetInitialDetentIndex === 'last'
-      ? sheetAllowedDetents.length - 1
-      : sheetInitialDetentIndex;
+    const resolvedDetentIndex =
+      sheetInitialDetentIndex === 'last' ? sheetAllowedDetents.length - 1 : sheetInitialDetentIndex;
+
+    if (resolvedDetentIndex >= 0 && resolvedDetentIndex <= sheetAllowedDetents.length) {
+      return resolvedDetentIndex;
+    }
   }
 
   return 0;

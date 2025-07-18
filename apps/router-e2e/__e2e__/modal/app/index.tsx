@@ -233,15 +233,16 @@ function FitForm() {
   );
 }
 
-function InitalDetentForm() {
+function InitialDetentForm() {
   const [open, setIsOpen] = useState(false);
   return (
     <>
       <Button title="Open Initial Detent" onPress={() => setIsOpen((open) => !open)} />
       <Modal
         presentationStyle='formSheet'
-        detentIndex={1}
+        initialDetentIndex={1}
         visible={open}
+        onClose={() => setIsOpen(false)}
         detents={[0.3, 0.5, 1]}
         style={{
           gap: 4,

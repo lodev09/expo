@@ -9,7 +9,7 @@ import { type ScreenProps } from 'react-native-screens';
 import { useModalContext, type ModalConfig } from './ModalContext';
 import { useNavigation } from '../useNavigation';
 import { DetentChangeData } from './types';
-import { areDetentsValid } from './utils';
+import { areDetentsValid, isInitialDetentIndexValid } from './utils';
 
 export interface ModalProps extends ViewProps {
   /**
@@ -78,7 +78,7 @@ export interface ModalProps extends ViewProps {
    * The initial detent index when sheet is presented.
    * Works only when `presentation` is set to `formSheet`.
    */
-  detentIndex?: ModalConfig['detentIndex'];
+  initialDetentIndex?: ModalConfig['initialDetentIndex'];
   /**
    * See {@link ScreenProps["sheetCornerRadius"]}.
    *
@@ -131,7 +131,7 @@ export function Modal(props: ModalProps) {
     presentationStyle,
     transparent,
     detents,
-    detentIndex,
+    initialDetentIndex,
     cornerRadius,
     footer,
     ...viewProps
@@ -140,10 +140,19 @@ export function Modal(props: ModalProps) {
   const [currentModalId, setCurrentModalId] = useState<string | undefined>();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   useEffect(() => {
-    if (!areDetentsValid(detents)) {
-      throw new Error(`Invalid detents provided to Modal: ${JSON.stringify(detents)}`);
+    if (__DEV__ && visible) {
+      if (!areDetentsValid(detents)) {
+        throw new Error(`Invalid detents provided to Modal: ${JSON.stringify(detents)}`);
+      }
+
+      if (!isInitialDetentIndexValid(detents, initialDetentIndex)) {
+        throw new Error(
+          `Initial detent index of ${initialDetentIndex} is out of bounds of provided detents array.`
+        );
+      }
     }
-  }, [detents, detentIndex]);
+  }, [visible, detents, initialDetentIndex]);
+
   useEffect(() => {
     if (visible) {
       const newId = nanoid();
@@ -155,7 +164,7 @@ export function Modal(props: ModalProps) {
         component: children,
         uniqueId: newId,
         parentNavigationProp: navigation,
-        detentIndex,
+        initialDetentIndex,
         detents,
         cornerRadius,
         footer,
@@ -171,12 +180,12 @@ export function Modal(props: ModalProps) {
   useEffect(() => {
     if (currentModalId && visible) {
       updateModal(currentModalId, {
-        detentIndex,
         component: children,
+        initialDetentIndex,
         footer,
       });
     }
-  }, [children, footer, detentIndex]);
+  }, [children, footer, initialDetentIndex]);
 
   useEffect(() => {
     if (currentModalId) {

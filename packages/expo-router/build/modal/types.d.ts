@@ -9,6 +9,7 @@ export interface ModalConfig {
     transparent?: boolean;
     viewProps?: ViewProps;
     detents?: number[] | 'fitToContents';
+<<<<<<< HEAD
     detentIndex?: number | 'last';
     cornerRadius?: number;
     footer?: () => React.ReactNode;
@@ -16,6 +17,9 @@ export interface ModalConfig {
 export interface DetentChangeData {
     index: number;
     stable: boolean;
+=======
+    initialDetentIndex?: number | 'last';
+>>>>>>> feat/router-modal-initial-detent-index
 }
 export interface ModalsRendererProps {
     children?: React.ReactNode;
