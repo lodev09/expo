@@ -208,9 +208,9 @@ export function Modal(props: ModalProps) {
         parentNavigationProp: navigation,
         initialDetentIndex,
         cornerRadius,
-        largestUndimmedDetentIndex,
         dismissible,
         unstable_footer,
+        largestUndimmedDetentIndex,
         detents: detents ?? 'fitToContents',
       });
       setCurrentModalId(newId);
