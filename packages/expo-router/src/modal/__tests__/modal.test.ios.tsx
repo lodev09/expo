@@ -147,6 +147,7 @@ describe('ScreenStackItem props', () => {
     const detents = [0.25, 0.5, 0.75, 1];
     const initialDetentIndex = 1;
     const largestUndimmedDetentIndex = 1;
+    const cornerRadius = 20;
 
     const CustomComponentWithModal = (props?: { onModalClose: () => void }) => {
       const [isOpen, setIsOpen] = useState(false);
@@ -157,8 +158,9 @@ describe('ScreenStackItem props', () => {
             visible={isOpen}
             onClose={props?.onModalClose}
             initialDetentIndex={initialDetentIndex}
-            detents={detents}
-            largestUndimmedDetentIndex={largestUndimmedDetentIndex}>
+            largestUndimmedDetentIndex={largestUndimmedDetentIndex}
+            cornerRadius={cornerRadius}
+            detents={detents}>
             <View testID="modal-content" />
           </Modal>
         </View>
@@ -184,6 +186,7 @@ describe('ScreenStackItem props', () => {
         sheetInitialDetentIndex: initialDetentIndex,
         sheetAllowedDetents: detents,
         sheetLargestUndimmedDetentIndex: largestUndimmedDetentIndex,
+        sheetCornerRadius: cornerRadius,
       })
     );
   });
