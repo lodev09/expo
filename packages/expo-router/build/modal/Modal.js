@@ -34,7 +34,7 @@ const utils_1 = require("./utils");
  * }
  */
 function Modal(props) {
-    const { children, visible, onClose, onShow, animationType, presentationStyle, transparent, detents, initialDetentIndex, ...viewProps } = props;
+    const { children, visible, onClose, onShow, onDetentChange, animationType, presentationStyle, transparent, detents, initialDetentIndex, cornerRadius, largestUndimmedDetentIndex, dismissible = true, unstable_footer, ...viewProps } = props;
     const { openModal, updateModal, closeModal, addEventListener } = (0, ModalContext_1.useModalContext)();
     const [currentModalId, setCurrentModalId] = (0, react_1.useState)();
     const navigation = (0, useNavigation_1.useNavigation)();
@@ -71,6 +71,10 @@ function Modal(props) {
                 uniqueId: newId,
                 parentNavigationProp: navigation,
                 initialDetentIndex,
+                cornerRadius,
+                dismissible,
+                unstable_footer,
+                largestUndimmedDetentIndex,
                 detents: detents ?? 'fitToContents',
             });
             setCurrentModalId(newId);
@@ -84,9 +88,11 @@ function Modal(props) {
         if (currentModalId && visible) {
             updateModal(currentModalId, {
                 component: children,
+                initialDetentIndex,
+                unstable_footer,
             });
         }
-    }, [children]);
+    }, [children, unstable_footer, initialDetentIndex]);
     (0, react_1.useEffect)(() => {
         if (currentModalId) {
             const unsubscribeShow = addEventListener('show', (id) => {
@@ -100,9 +106,15 @@ function Modal(props) {
                     setCurrentModalId(undefined);
                 }
             });
+            const unsubscribeDetentChange = addEventListener('detentChange', (id, data) => {
+                if (id === currentModalId) {
+                    onDetentChange?.(data);
+                }
+            });
             return () => {
                 unsubscribeShow();
                 unsubscribeClose();
+                unsubscribeDetentChange();
             };
         }
         return () => { };

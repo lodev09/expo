@@ -9,12 +9,21 @@ export interface ModalConfig {
     transparent?: boolean;
     viewProps?: ViewProps;
     detents?: number[] | 'fitToContents';
+    initialDetentIndex?: number | 'last';
+    cornerRadius?: number;
     unstable_footer?: () => React.ReactNode;
+    largestUndimmedDetentIndex?: number | 'none' | 'last';
+    dismissible?: boolean;
+}
+export interface DetentChangeData {
+    index: number;
+    stable: boolean;
 }
 export interface ModalsRendererProps {
     children?: React.ReactNode;
     modalConfigs: ModalConfig[];
     onDismissed?: (id: string) => void;
     onShow?: (id: string) => void;
+    onDetentChange?: (id: string, data: DetentChangeData) => void;
 }
 //# sourceMappingURL=types.d.ts.map
