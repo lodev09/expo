@@ -149,7 +149,7 @@ function FormsheetDetentsDemo() {
         onClose={handleClose}
         onDetentChange={(data) => setDetentIndex(data.index)}
         largestUndimmedDetentIndex={0}
-        initialDetentIndex={1}
+        initialDetentIndex={0}
         presentationStyle="formSheet">
         <View style={{ padding: 20 }}>
           <Text>This is a Formsheet Modal with detents 0.25, 0.5, 0.75, 1</Text>
