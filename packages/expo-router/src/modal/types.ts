@@ -12,7 +12,7 @@ export interface ModalConfig {
   detents?: number[] | 'fitToContents';
   initialDetentIndex?: number | 'last';
   cornerRadius?: number;
-  footer?: () => React.ReactNode;
+  unstable_footer?: () => React.ReactNode;
   largestUndimmedDetentIndex?: number | 'none' | 'last';
   dismissible?: boolean;
 }

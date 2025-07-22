@@ -53,7 +53,7 @@ export const ModalsRenderer = ({
           sheetCornerRadius={config.cornerRadius}
           // @ts-expect-error
           sheetDismissible={config.dismissible}
-          unstable_sheetFooter={config.footer}
+          unstable_sheetFooter={config.unstable_footer}
           sheetLargestUndimmedDetentIndex={config.largestUndimmedDetentIndex}
           style={[
             StyleSheet.absoluteFill,

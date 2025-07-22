@@ -8,7 +8,7 @@ const react_native_1 = require("react-native");
 const react_native_screens_1 = require("react-native-screens");
 const ModalComponent_1 = require("./ModalComponent");
 const utils_1 = require("./utils");
-const ModalsRenderer = ({ children, modalConfigs, onDismissed, onShow, onDetentChange, }) => {
+const ModalsRenderer = ({ children, modalConfigs, onDismissed, onShow, }) => {
     const rootId = (0, react_1.useRef)((0, non_secure_1.nanoid)());
     return (<react_native_screens_1.ScreenStack style={styles.stackContainer}>
       <react_native_screens_1.ScreenStackItem screenId={rootId.current} activityState={2} style={react_native_1.StyleSheet.absoluteFill} headerConfig={{
@@ -24,9 +24,7 @@ const ModalsRenderer = ({ children, modalConfigs, onDismissed, onShow, onDetentC
                     backgroundColor: config.transparent ? 'transparent' : 'white',
                 },
                 config.viewProps?.style,
-            ]} sheetAllowedDetents={config.detents} sheetInitialDetentIndex={config.initialDetentIndex} sheetCornerRadius={config.cornerRadius} 
-        // @ts-expect-error
-        sheetDismissible={config.dismissible} unstable_sheetFooter={config.footer} sheetLargestUndimmedDetentIndex={config.largestUndimmedDetentIndex} style={[
+            ]} sheetAllowedDetents={config.detents} unstable_sheetFooter={config.unstable_footer} style={[
                 react_native_1.StyleSheet.absoluteFill,
                 {
                     backgroundColor: config.transparent ? 'transparent' : 'white',
@@ -35,11 +33,6 @@ const ModalsRenderer = ({ children, modalConfigs, onDismissed, onShow, onDetentC
                 onDismissed?.(config.uniqueId);
             }} onAppear={() => {
                 onShow?.(config.uniqueId);
-            }} onSheetDetentChanged={(event) => {
-                onDetentChange?.(config.uniqueId, {
-                    index: event.nativeEvent.index,
-                    stable: event.nativeEvent.isStable,
-                });
             }}>
           <ModalComponent_1.ModalComponent modalConfig={config}/>
         </react_native_screens_1.ScreenStackItem>))}

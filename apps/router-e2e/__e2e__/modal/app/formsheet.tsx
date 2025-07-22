@@ -20,10 +20,16 @@ function FormsheetBaseDemo() {
   return (
     <>
       <Button title="Base Formsheet Modal" onPress={() => setIsOpen(true)} />
-      <Modal visible={isOpen}
+      <Modal
+        visible={isOpen}
         onClose={() => setIsOpen(false)}
-        presentationStyle="formSheet"
-        cornerRadius={30}>
+        cornerRadius={30}
+        // unstable_footer={() => (
+        //   <View style={{ height: 50, backgroundColor: 'red' }}>
+        //     <Text>This is footer</Text>
+        //   </View>
+        // )}
+        presentationStyle="formSheet">
         <View style={{ padding: 20 }}>
           <Text>This is a Base Formsheet Modal</Text>
           <Text>With Corner Radius of 30</Text>
