@@ -19,6 +19,7 @@
 - [modal] Add `cornerRadius` prop ([#38145](https://github.com/expo/expo/pull/38145) by [@lodev09](https://github.com/lodev09))
 - [modal] Add `footer` prop ([#38146](https://github.com/expo/expo/pull/38146) by [@lodev09](https://github.com/lodev09))
 - [modal] Add largestUndimmedDetentIndex prop ([#38170](https://github.com/expo/expo/pull/38170) by [@lodev09](https://github.com/lodev09))
+- Add closeOnNavigation prop to modal ([#38198](https://github.com/expo/expo/pull/38198) by [@Ubax](https://github.com/Ubax))
 
 ### 🐛 Bug fixes
 
@@ -33,6 +34,7 @@
 - fix(web): fitToContents modal support on desktop, aligned default styles more with iOS ([#38028](https://github.com/expo/expo/pull/38028) by [@hirbod](https://github.com/hirbod))
 - fix navigation from preview to modal ([#37832](https://github.com/expo/expo/pull/37832) by [@Ubax](https://github.com/Ubax))
 - Fix children update in modal ([#38064](https://github.com/expo/expo/pull/38064) by [@Ubax](https://github.com/Ubax))
+- Add static rewrites support to export and server-side handling ([#37930](https://github.com/expo/expo/pull/37930) by [@hassankhan](https://github.com/hassankhan))
 
 ### 💡 Others
 
