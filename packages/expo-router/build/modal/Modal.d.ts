@@ -1,5 +1,6 @@
 import { ViewProps } from 'react-native';
 import { type ModalConfig } from './ModalContext';
+import { DetentChangeData } from './types';
 export interface ModalProps extends ViewProps {
     /**
      * The content of the modal.
@@ -20,6 +21,14 @@ export interface ModalProps extends ViewProps {
      * Callback that is called after modal is shown.
      */
     onShow?: () => void;
+    /**
+     * Callback that is called after detent change.
+     * Works only when `presentation` is set to `formSheet`.
+     *
+     * @platform ios
+     * @platform android
+     */
+    onDetentChange?: (data: DetentChangeData) => void;
     /**
      * The animation type for the modal.
      * This can be one of 'none', 'slide', or 'fade'.
@@ -56,6 +65,50 @@ export interface ModalProps extends ViewProps {
      * @default 'fitToContents'
      */
     detents?: ModalConfig['detents'];
+    /**
+     * See {@link ScreenProps["initialDetentIndex"]}.
+     *
+     * The initial detent index when sheet is presented.
+     * Works only when `presentation` is set to `formSheet`.
+     */
+    initialDetentIndex?: ModalConfig['initialDetentIndex'];
+    /**
+     * See {@link ScreenProps["sheetCornerRadius"]}.
+     *
+     * The corner radius that the sheet will try to render with.
+     * Works only when `presentation` is set to `formSheet`.
+     */
+    cornerRadius?: ModalConfig['cornerRadius'];
+    /**
+     * See {@link ScreenProps["unstable_sheetFooter"]}.
+     *
+     * Footer component that can be used alongside formSheet stack presentation style.
+     * Works only when `presentation` is set to `formSheet`.
+     *
+     * Please note that this prop is marked as unstable and might be subject of breaking changes,
+     * including removal.
+     *
+     * @platform android
+     */
+    unstable_footer?: ModalConfig['unstable_footer'];
+    /**
+     * See {@link ScreenProps["sheetLargestUndimmedDetentIndex"]}.
+     *
+     * The largest sheet detent for which a view underneath won't be dimmed.
+     * Works only when `presentation` is set to `formSheet`.
+     */
+    largestUndimmedDetentIndex?: ModalConfig['largestUndimmedDetentIndex'];
+    /**
+     * See {@link ScreenProps["sheetDismissible"]}.
+     *
+     * Determines if the sheet can be dismissed.
+     * Works only when `presentation` is set to `formSheet`.
+     *
+     * NOTE: not yet in react-native-screens
+     * @see https://github.com/software-mansion/react-native-screens/pull/2902
+     * @default true
+     */
+    dismissible?: ModalConfig['dismissible'];
     /**
      * Determines whether the modal should close when navigating away from the screen that opened it.
      *
