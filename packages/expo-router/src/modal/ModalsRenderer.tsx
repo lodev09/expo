@@ -43,7 +43,10 @@ export const ModalsRenderer = ({
           }}
           contentStyle={[
             {
-              flex: 1,
+              // fix `fitToContents` on Android.
+              // I don't think we need this on IOS too.
+              // see: https://github.com/expo/expo/pull/37982#issuecomment-3133542741
+              // flex: 1,
               backgroundColor: config.transparent ? 'transparent' : 'white',
             },
             config.viewProps?.style,
