@@ -221,7 +221,7 @@ export function Modal(props: ModalProps) {
         dismissible,
         unstable_footer,
         largestUndimmedDetentIndex,
-        detents: detents ?? 'fitToContents',
+        detents: detents ?? (presentationStyle === 'formSheet' ? 'fitToContents' : undefined),
       });
       setCurrentModalId(newId);
       return () => {
