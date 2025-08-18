@@ -13,6 +13,8 @@ export { useSitemap, SitemapType } from './views/useSitemap';
 export { ErrorBoundaryProps } from './views/Try';
 export { ErrorBoundary } from './views/ErrorBoundary';
 export type { ScreenProps } from './useScreens';
+export { Modal, type ModalProps } from './modal/Modal';
+export { ModalContextProvider } from './modal/ModalContext';
 /**
  * @hidden
  */
